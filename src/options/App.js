@@ -3,17 +3,12 @@ import './App.css';
 import Card from '../components/Card';
 import firebase from "../utils/firebase";
 
-// firebase.firestore().collection("recipes").add({
-//   title: "Chicken",
-//   description: "Cooked Chicken"
-// })
-
 function App() {
 
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
-    firebase
+    const unsubscribe = firebase
       .firestore()
       .collection("recipes")
       .onSnapshot((snapshot) => {
@@ -24,6 +19,8 @@ function App() {
 
         setRecipes(newRecipes)
       })
+
+    return () => unsubscribe()
   }, [])
 
   console.log(recipes)

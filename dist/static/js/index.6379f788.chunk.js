@@ -51,7 +51,8 @@ var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\
 
 
 const Card = ({
-  title
+  title,
+  description
 }) => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card",
@@ -68,7 +69,14 @@ const Card = ({
       lineNumber: 6,
       columnNumber: 13
     }
-  }, title));
+  }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 13
+    }
+  }, description));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
@@ -181,15 +189,17 @@ function App() {
       lineNumber: 33,
       columnNumber: 7
     }
-  }, "This is Firebase"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    title: "Title",
+  }, "This is Firebase"), recipes.map(recipe => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    key: recipe.id,
+    title: recipe.title,
+    description: recipe.description,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 7
+      lineNumber: 35,
+      columnNumber: 9
     }
-  }));
+  })));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);

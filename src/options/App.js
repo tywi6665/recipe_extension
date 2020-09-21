@@ -31,9 +31,13 @@ function App() {
   return (
     <div className="options">
       <p>This is Firebase</p>
-      <Card
-        title="Title"
-      />
+      {recipes.map((recipe) => (
+        <Card
+          key={recipe.id}
+          title={recipe.title}
+          description={recipe.description}
+        />
+      ))}
     </div>
   );
 }

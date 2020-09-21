@@ -1,12 +1,16 @@
 import React from 'react';
-import { FirebaseDatabaseProvider } from '@react-firebase/database';
 import './App.css';
+
+import firebase from "../utils/firebase";
+
+firebase.firestore().collection("times").add({
+  title: "Cube",
+  time_seconds: 45
+})
 
 function App() {
   return (
-    <FirebaseDatabaseProvider>
-      <p>This is Firebase</p>
-    </FirebaseDatabaseProvider>
+    <p>This is Firebase</p>
   );
 }
 

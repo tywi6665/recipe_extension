@@ -161,8 +161,9 @@ var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\
 
 function App() {
   const [recipes, setRecipes] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const [sortBy, setSortBy] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(["TIME_DESC"]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const unsubscribe = _utils_firebase__WEBPACK_IMPORTED_MODULE_3__["default"].firestore().collection("recipes").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+    const unsubscribe = _utils_firebase__WEBPACK_IMPORTED_MODULE_3__["default"].firestore().collection("recipes").orderBy(sortOptions[sortBy].column, sortOptions[sortBy].direction).onSnapshot(snapshot => {
       const newRecipes = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -170,31 +171,96 @@ function App() {
       setRecipes(newRecipes);
     });
     return () => unsubscribe();
-  }, []);
-  console.log(recipes);
+  }, [sortBy]);
+  const sortOptions = {
+    "TIME_ASC": {
+      column: "timestamp",
+      direction: "asc"
+    },
+    "TIME_DESC": {
+      column: "timestamp",
+      direction: "desc"
+    },
+    "TITLE_ASC": {
+      column: "title",
+      direction: "asc"
+    },
+    "TITLE_DESC": {
+      column: "title",
+      direction: "desc"
+    }
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "options",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 36,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 37,
       columnNumber: 7
     }
-  }, "This is Firebase"), recipes.map(recipe => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "This is Firebase"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    value: sortBy,
+    onChange: e => setSortBy(e.currentTarget.value),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TIME_DESC",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 11
+    }
+  }, "Newest"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TIME_ASC",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 11
+    }
+  }, "Oldest"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TITLE_ASC",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 11
+    }
+  }, "Title A-Z"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TITLE_DESC",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 11
+    }
+  }, "Title Z-A"))), recipes.map(recipe => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
     key: recipe.id,
     title: recipe.title,
     description: recipe.description,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 47,
       columnNumber: 9
     }
   })));
@@ -452,5 +518,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[5,"runtime-index.6379f788",0,1]]]);
+},[[5,"runtime-index.6379f788",2,3]]]);
 //# sourceMappingURL=index.6379f788.chunk.js.map

@@ -6,12 +6,13 @@ import firebase from "../utils/firebase";
 function App() {
 
   const [recipes, setRecipes] = useState([])
+  const [sortBy, setSortBy] = useState(["TIME_DESC"])
 
   useEffect(() => {
     const unsubscribe = firebase
       .firestore()
       .collection("recipes")
-      .orderBy("timestamp", "desc")
+      .orderBy(sortOptions[sortBy].column, sortOptions[sortBy].direction)
       .onSnapshot((snapshot) => {
         const newRecipes = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -22,13 +23,26 @@ function App() {
       })
 
     return () => unsubscribe()
-  }, [])
+  }, [sortBy])
 
-  console.log(recipes)
+  const sortOptions = {
+    "TIME_ASC": { column: "timestamp", direction: "asc" },
+    "TIME_DESC": { column: "timestamp", direction: "desc" },
+    "TITLE_ASC": { column: "title", direction: "asc" },
+    "TITLE_DESC": { column: "title", direction: "desc" }
+  }
 
   return (
     <div className="options">
       <p>This is Firebase</p>
+      <div>
+        <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
+          <option value="TIME_DESC">Newest</option>
+          <option value="TIME_ASC">Oldest</option>
+          <option value="TITLE_ASC">Title A-Z</option>
+          <option value="TITLE_DESC">Title Z-A</option>
+        </select>
+      </div>
       {recipes.map((recipe) => (
         <Card
           key={recipe.id}

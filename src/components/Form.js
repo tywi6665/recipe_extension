@@ -14,7 +14,8 @@ const Form = () => {
             .collection("recipes")
             .add({
                 title,
-                description
+                description,
+                timestamp: Date.now()
             })
             .then(() => {
                 setTitle("")

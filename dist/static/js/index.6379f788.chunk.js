@@ -162,7 +162,7 @@ var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\
 function App() {
   const [recipes, setRecipes] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const unsubscribe = _utils_firebase__WEBPACK_IMPORTED_MODULE_3__["default"].firestore().collection("recipes").onSnapshot(snapshot => {
+    const unsubscribe = _utils_firebase__WEBPACK_IMPORTED_MODULE_3__["default"].firestore().collection("recipes").orderBy("timestamp", "desc").onSnapshot(snapshot => {
       const newRecipes = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -177,14 +177,14 @@ function App() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 30,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 31,
       columnNumber: 7
     }
   }, "This is Firebase"), recipes.map(recipe => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -194,7 +194,7 @@ function App() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 33,
       columnNumber: 9
     }
   })));
@@ -452,5 +452,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[5,"runtime-index.6379f788",2,3]]]);
+},[[5,"runtime-index.6379f788",0,1]]]);
 //# sourceMappingURL=index.6379f788.chunk.js.map

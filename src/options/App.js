@@ -11,6 +11,7 @@ function App() {
     const unsubscribe = firebase
       .firestore()
       .collection("recipes")
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         const newRecipes = snapshot.docs.map((doc) => ({
           id: doc.id,

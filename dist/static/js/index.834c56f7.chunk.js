@@ -217,7 +217,7 @@ var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "popup",
+    id: "popup_page",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -486,5 +486,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[4,"runtime-index.834c56f7",2,3]]]);
+},[[4,"runtime-index.834c56f7",0,1]]]);
 //# sourceMappingURL=index.834c56f7.chunk.js.map

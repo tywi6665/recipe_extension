@@ -6,7 +6,7 @@ import firebase from "../utils/firebase";
 
 function App() {
   return (
-    <div className="popup">
+    <div id="popup_page">
       <Form />
     </div>
   );

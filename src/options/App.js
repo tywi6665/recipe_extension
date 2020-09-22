@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './App.scss';
 import Card from '../components/Card';
 import firebase from "../utils/firebase";
 
@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <div className="options">
+    <div id="options_page">
       <p>This is Firebase</p>
       <div>
         <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
@@ -43,13 +43,15 @@ function App() {
           <option value="TITLE_DESC">Title Z-A</option>
         </select>
       </div>
-      {recipes.map((recipe) => (
-        <Card
-          key={recipe.id}
-          title={recipe.title}
-          description={recipe.description}
-        />
-      ))}
+      <div className="card-container">
+        {recipes.map((recipe) => (
+          <Card
+            key={recipe.id}
+            title={recipe.title}
+            description={recipe.description}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
+import moment from "moment";
 
-const Card = ({ title, description }) => {
+const Card = ({ title, description, timestamp }) => {
     return (
         <div className="card">
             <div className="card-top">
@@ -9,6 +10,7 @@ const Card = ({ title, description }) => {
             <div className="card-bottom">
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <span>Saved On: {moment(timestamp).format("MMMM Do YYYY")}</span>
             </div>
         </div>
     );

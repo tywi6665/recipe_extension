@@ -34,7 +34,8 @@ function App() {
 
   return (
     <div id="options_page">
-      <p>This is Firebase</p>
+      <h1>Dog-Ear</h1>
+      <h2>Recipe Repository</h2>
       <div>
         <select value={sortBy} onChange={e => setSortBy(e.currentTarget.value)}>
           <option value="TIME_DESC">Newest</option>
@@ -49,6 +50,7 @@ function App() {
             key={recipe.id}
             title={recipe.title}
             description={recipe.description}
+            timestamp={recipe.timestamp}
           />
         ))}
       </div>

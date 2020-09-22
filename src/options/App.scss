@@ -12,6 +12,7 @@
     grid-row-gap: 1em;
     justify-items: center;
     align-items: center;
+    // transition: all 0.3s;
 
     .card {
       width: 100%;
@@ -29,6 +30,12 @@
 
       .card-bottom {
         padding: 0.5em;
+
+        span {
+          overflow: hidden;
+          color: #666;
+          font-size: 0.78em;
+        }
       }
     }
   }

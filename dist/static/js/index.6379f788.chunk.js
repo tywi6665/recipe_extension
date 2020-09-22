@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#options_page {\n  width: 100%;\n  height: 100%; }\n  #options_page .card-container {\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n    grid-auto-rows: minmax(150px, auto);\n    grid-column-gap: 1em;\n    grid-row-gap: 1em;\n    justify-items: center;\n    align-items: center; }\n    #options_page .card-container .card {\n      width: 100%;\n      height: 100%;\n      border-radius: 8px; }\n      #options_page .card-container .card .card-top img {\n        width: 100%;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px; }\n", ""]);
+exports.push([module.i, "#options_page {\n  height: 100%;\n  margin: 1em; }\n  #options_page .card-container {\n    margin-top: 1em;\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n    grid-auto-rows: minmax(150px, auto);\n    grid-column-gap: 1em;\n    grid-row-gap: 1em;\n    justify-items: center;\n    align-items: center; }\n    #options_page .card-container .card {\n      width: 100%;\n      height: 100%;\n      border-radius: 8px;\n      box-shadow: 0px 15px 10px 2px rgba(16, 36, 94, 0.3); }\n      #options_page .card-container .card .card-top img {\n        width: 100%;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px; }\n      #options_page .card-container .card .card-bottom {\n        padding: 0.5em; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -60,21 +60,29 @@ const Card = ({
       lineNumber: 7,
       columnNumber: 17
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-bottom",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9,
       columnNumber: 13
     }
-  }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10,
-      columnNumber: 13
+      columnNumber: 17
     }
-  }, description));
+  }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 17
+    }
+  }, description)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
@@ -466,5 +474,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[5,"runtime-index.6379f788",0,1]]]);
+},[[5,"runtime-index.6379f788",2,3]]]);
 //# sourceMappingURL=index.6379f788.chunk.js.map

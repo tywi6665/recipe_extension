@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#options_page {\n  height: 100%;\n  margin: 1em; }\n  #options_page .card-container {\n    margin-top: 1em;\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n    grid-auto-rows: minmax(150px, auto);\n    grid-column-gap: 1em;\n    grid-row-gap: 1em;\n    justify-items: center;\n    align-items: center; }\n    #options_page .card-container .card {\n      width: 100%;\n      height: 100%;\n      border-radius: 8px;\n      box-shadow: 0px 15px 10px 2px rgba(16, 36, 94, 0.3); }\n      #options_page .card-container .card .card-top img {\n        width: 100%;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px; }\n      #options_page .card-container .card .card-bottom {\n        padding: 0.5em; }\n        #options_page .card-container .card .card-bottom span {\n          overflow: hidden;\n          color: #666;\n          font-size: 0.78em; }\n", ""]);
+exports.push([module.i, "#options_page {\n  height: 100%;\n  margin: 1em; }\n  #options_page .card-container {\n    margin-top: 1em;\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n    grid-auto-rows: minmax(150px, auto);\n    grid-column-gap: 1em;\n    grid-row-gap: 1em;\n    justify-items: center;\n    align-items: center; }\n    #options_page .card-container .card {\n      width: 100%;\n      height: 100%;\n      border-radius: 8px;\n      box-shadow: 0px 15px 10px 2px rgba(16, 36, 94, 0.3); }\n      #options_page .card-container .card .card-top img {\n        width: 100%;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px; }\n      #options_page .card-container .card .card-bottom {\n        padding: 0.5em; }\n        #options_page .card-container .card .card-bottom a {\n          cursor: pointer;\n          text-decoration: none;\n          position: relative;\n          width: -moz-fit-content;\n          width: fit-content;\n          display: block;\n          margin: 15px auto;\n          padding: 10px;\n          color: #000000;\n          border: 2px solid #f04a26;\n          transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s; }\n          #options_page .card-container .card .card-bottom a:hover {\n            color: #fff !important;\n            background-color: transparent; }\n          #options_page .card-container .card .card-bottom a:hover:before {\n            top: 0%;\n            bottom: auto;\n            height: 101%; }\n          #options_page .card-container .card .card-bottom a::before {\n            display: block;\n            position: absolute;\n            left: -1px;\n            bottom: -1px;\n            height: 0px;\n            width: 102%;\n            z-index: -1;\n            content: \"\";\n            color: #fff !important;\n            background: #f04a26;\n            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s; }\n        #options_page .card-container .card .card-bottom span {\n          overflow: hidden;\n          color: #666;\n          font-size: 0.78em; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -38,7 +38,8 @@ var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\
 const Card = ({
   title,
   description,
-  timestamp
+  timestamp,
+  url
 }) => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card",
@@ -86,11 +87,19 @@ const Card = ({
       lineNumber: 12,
       columnNumber: 17
     }
-  }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13,
+      columnNumber: 17
+    }
+  }, "Go Food52"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
       columnNumber: 17
     }
   }, "Saved On: ", moment__WEBPACK_IMPORTED_MODULE_1___default()(timestamp).format("MMMM Do YYYY"))));
@@ -234,7 +243,8 @@ function App() {
     key: recipe.id,
     title: recipe.title,
     description: recipe.description,
-    timestamp: recipe.timestamp,
+    timestamp: recipe.timestamp // url={recipe.url}
+    ,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -493,5 +503,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[5,"runtime-index.6379f788",0,1,5]]]);
+},[[5,"runtime-index.6379f788",0,1,2]]]);
 //# sourceMappingURL=index.6379f788.chunk.js.map

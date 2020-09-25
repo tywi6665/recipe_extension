@@ -6,8 +6,9 @@
   "icons": {
     "128": "favicon.png"
   },
-  "start_url": ".",
-  "permissions": [],
+  "permissions": [
+    "activeTab"
+  ],
   "background": {
     "scripts": [
       "background.js"

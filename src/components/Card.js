@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from "moment";
 
-const Card = ({ title, description, timestamp }) => {
+const Card = ({ title, description, timestamp, url }) => {
     return (
         <div className="card">
             <div className="card-top">
@@ -10,6 +10,7 @@ const Card = ({ title, description, timestamp }) => {
             <div className="card-bottom">
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <a href="">Go Food52</a>
                 <span>Saved On: {moment(timestamp).format("MMMM Do YYYY")}</span>
             </div>
         </div>

@@ -51,6 +51,7 @@ function App() {
             title={recipe.title}
             description={recipe.description}
             timestamp={recipe.timestamp}
+          // url={recipe.url}
           />
         ))}
       </div>

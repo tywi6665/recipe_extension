@@ -211,29 +211,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/firebase */ "./src/utils/firebase.js");
 var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\src\\popup\\App.js";
 
+/*global chrome*/
+
 
 
 
 
 function App() {
+  const [currentTabURL, setCurrentTabURL] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    let activeTab = tabs[0].url;
+    console.log(activeTab);
+
+    if (typeof activeTab == "undefined") {
+      console.log("URL not Found");
+    } else {
+      setCurrentTabURL(activeTab);
+    }
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "popup_page",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 24,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 25,
       columnNumber: 7
     }
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 7
+    }
+  }, currentTabURL));
 }
 
+{
+  /* <p>{currentTabURL}</p>
+  {!currentTabURL ? (
+   <>
+     <h2>Current tab URL could not be extracted, so please input require information manually:</h2>
+     <Form />
+   </>
+  ) : (
+     <button>Create New Recipe Entry!</button>
+   )} */
+}
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
@@ -312,6 +346,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../serviceWorker */ "./src/serviceWorker.js");
 var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\src\\popup\\index.js";
 
+/*global chrome*/
+
 
 
 
@@ -320,14 +356,14 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8,
+    lineNumber: 10,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9,
+    lineNumber: 11,
     columnNumber: 5
   }
 })), document.getElementById('root')); // If you want your app to work offline and load faster, you can change
@@ -486,5 +522,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[4,"runtime-index.834c56f7",0,1]]]);
+},[[4,"runtime-index.834c56f7",3,4]]]);
 //# sourceMappingURL=index.834c56f7.chunk.js.map

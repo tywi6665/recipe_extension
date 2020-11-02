@@ -5,6 +5,7 @@ import './App.css';
 import Form from '../components/Form';
 
 import firebase from "../utils/firebase";
+import scrape from "../utils/scraping";
 
 function App() {
 
@@ -17,13 +18,21 @@ function App() {
       console.log("URL not Found")
     } else {
       setCurrentTabURL(activeTab)
+      // chrome.tabs.sendMessage(activeTab[0].id, { action: "scrape", index: activeTab[0].index })
     }
   });
 
   return (
     <div id="popup_page">
-      <Form />
       <p>{currentTabURL}</p>
+      {!currentTabURL ? (
+        <>
+          <h2>Current tab URL could not be extracted, so please input require information manually:</h2>
+          <Form />
+        </>
+      ) : (
+          <button onClick={() => scrape(currentTabURL)}>Create New Recipe Entry!</button>
+        )}
     </div>
 
   );

@@ -29,6 +29,15 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script src="background.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      chrome.tabs.query({ currentWindow: true, active: true },
+        function (activeTab) {
+          chrome.tabs.sendMessage(activeTab[0].id, { action: "scrape", index: activeTab[0].index })
+        }
+      )
+    }, false)
+  </script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

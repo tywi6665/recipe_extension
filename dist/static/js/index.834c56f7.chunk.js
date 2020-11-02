@@ -209,9 +209,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Form */ "./src/components/Form.js");
 /* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/firebase */ "./src/utils/firebase.js");
+/* harmony import */ var _utils_scraping__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/scraping */ "./src/utils/scraping.js");
 var _jsxFileName = "C:\\Users\\Tyler Winstead\\Desktop\\Code\\recipe_extension\\src\\popup\\App.js";
 
 /*global chrome*/
+
 
 
 
@@ -229,7 +231,7 @@ function App() {
     if (typeof activeTab == "undefined") {
       console.log("URL not Found");
     } else {
-      setCurrentTabURL(activeTab);
+      setCurrentTabURL(activeTab); // chrome.tabs.sendMessage(activeTab[0].id, { action: "scrape", index: activeTab[0].index })
     }
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -237,24 +239,39 @@ function App() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 26,
       columnNumber: 5
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 27,
       columnNumber: 7
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, currentTabURL), !currentTabURL ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 7
+      lineNumber: 30,
+      columnNumber: 11
     }
-  }, currentTabURL));
+  }, "Current tab URL could not be extracted, so please input require information manually:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 11
+    }
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => Object(_utils_scraping__WEBPACK_IMPORTED_MODULE_4__["default"])(currentTabURL),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 11
+    }
+  }, "Create New Recipe Entry!"));
 }
 
 {
@@ -508,6 +525,23 @@ firebase__WEBPACK_IMPORTED_MODULE_0__["initializeApp"](firebaseConfig);
 
 /***/ }),
 
+/***/ "./src/utils/scraping.js":
+/*!*******************************!*\
+  !*** ./src/utils/scraping.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+async function scrape(url) {
+  console.log(url, "scrape");
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (scrape);
+
+/***/ }),
+
 /***/ 4:
 /*!********************************************************************************************************************!*\
   !*** multi (webpack)/hot/dev-server.js ./node_modules/react-dev-utils/webpackHotDevClient.js ./src/popup/index.js ***!
@@ -522,5 +556,5 @@ module.exports = __webpack_require__(/*! C:\Users\Tyler Winstead\Desktop\Code\re
 
 /***/ })
 
-},[[4,"runtime-index.834c56f7",3,4]]]);
+},[[4,"runtime-index.834c56f7",0,1]]]);
 //# sourceMappingURL=index.834c56f7.chunk.js.map
